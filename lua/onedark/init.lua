@@ -106,7 +106,6 @@ local highlights = {
   { hg = 'StatusLineNC', fg = colors.comment_grey }, --status lines of not-current windows Note = if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
   { hg = 'StatusLineTerm', fg = colors.white, bg = colors.cursor_grey }, --status line of current :terminal window
   { hg = 'StatusLineTermNC', fg = colors.comment_grey }, --status line of non-current  =terminal window
-  { hg = 'StatusLineNonText', fg = colors.special_grey, bg = colors.cursor_grey }, --status line of non-current  =terminal window
   { hg = 'TabLine', fg = colors.comment_grey }, --tab pages line, not active tab page label
   { hg = 'TabLineFill' }, --tab pages line, where there are no labels
   { hg = 'TabLineSel', fg = colors.white }, --tab pages line, active tab page label

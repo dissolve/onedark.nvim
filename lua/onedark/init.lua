@@ -1,8 +1,10 @@
-local M = {}
+-- local M = {}
 
 local colors = {
+  blackred = '#701C25',
   red = '#E06C75',
   dark_red = '#BE5046',
+  blackgreen = '#184309',
   green = '#98C379',
   yellow = '#E5C07B',
   dark_yellow = '#D19A66',
@@ -12,10 +14,10 @@ local colors = {
   white = '#ABB2BF',
   black = '#282C34',
   foreground = '#ABB2BF',
-  background = '#282C34',
+  background = '#181C24',
   comment_grey = '#5C6370',
   gutter_fg_grey = '#4B5263',
-  cursor_grey = '#2C323C',
+  cursor_grey = '#202530',
   visual_grey = '#3E4452',
   menu_grey = '#3E4452',
   special_grey = '#3B4048',
@@ -68,9 +70,9 @@ local highlights = {
   { hg = 'CursorIM' }, --like Cursor, but used when in IME mode
   { hg = 'CursorLine', bg = colors.cursor_grey }, --the screen line that the cursor is in when 'cursorline' is set
   { hg = 'Directory', fg = colors.blue }, --directory names (and other special names in listings)
-  { hg = 'DiffAdd', bg = colors.green, fg = colors.black }, --diff mode: Added line
-  { hg = 'DiffChange', fg = colors.yellow, gui = 'underline', cterm = 'underline' }, --diff mode: Changed line
-  { hg = 'DiffDelete', bg = colors.red, fg = colors.black }, --diff mode: Deleted line
+  { hg = 'DiffAdd', bg = colors.blackgreen, fg = colors.foreground }, --diff mode: Added line
+  { hg = 'DiffChange', fg = colors.yellow, gui = 'undercurl', cterm = 'underline' }, --diff mode: Changed line
+  { hg = 'DiffDelete', bg = colors.blackred, fg = colors.black }, --diff mode: Deleted line
   { hg = 'DiffText', bg = colors.yellow, fg = colors.black }, --diff mode: Changed text within a changed line
   { hg = 'ErrorMsg', fg = colors.red }, --error messages on the command line
   { hg = 'VertSplit', fg = colors.vertsplit }, --the column separating vertically split windows
@@ -141,7 +143,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
   table.insert(highlights, { hg = '@tag.delimiter', fg = colors.blue })
 end
 
-M.colorscheme = function()
+-- M.colorscheme = function()
   local highlight_cmds = {}
   for idx = 1, #highlights do
     local highlight = highlights[idx]
@@ -155,6 +157,6 @@ M.colorscheme = function()
     )
   end
   vim.cmd(table.concat(highlight_cmds, '\n'))
-end
+-- end
 
-return M
+-- return M

@@ -1,4 +1,4 @@
--- local M = {}
+local M = {}
 
 local colors = {
   blackred = '#701C25',
@@ -143,7 +143,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
   table.insert(highlights, { hg = '@tag.delimiter', fg = colors.blue })
 end
 
--- M.colorscheme = function()
+M.colorscheme = function()
   local highlight_cmds = {}
   for idx = 1, #highlights do
     local highlight = highlights[idx]
@@ -157,6 +157,6 @@ end
     )
   end
   vim.cmd(table.concat(highlight_cmds, '\n'))
--- end
+end
 
--- return M
+return M

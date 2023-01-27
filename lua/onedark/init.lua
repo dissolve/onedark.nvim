@@ -1,13 +1,14 @@
 local M = {}
 
 local colors = {
-  blackred = '#701C25',
   red = '#E06C75',
   dark_red = '#BE5046',
-  blackgreen = '#184309',
+  diffred = '#5e3a3a',
   green = '#98C379',
+  diffgreen = '#425e3a',
   yellow = '#E5C07B',
   dark_yellow = '#D19A66',
+  diffyellow = '#5e5e3a',
   blue = '#61AFEF',
   purple = '#C678DD',
   cyan = '#56B6C2',
@@ -34,6 +35,7 @@ local highlights = {
   { hg = 'Number', fg = colors.dark_yellow }, --a number constant: 234, 0xff
   { hg = 'Boolean', fg = colors.dark_yellow }, --a boolean constant: TRUE, false
   { hg = 'Float', fg = colors.dark_yellow }, --a floating point constant: 2.3e10
+  { hg = 'FloatBorder', bg = colors.visual_grey, fg = colors.visual_grey }, --a floating point constant: 2.3e10
   { hg = 'Identifier', fg = colors.red }, --any variable name
   { hg = 'Function', fg = colors.blue }, --function name (also: methods for classes)
   { hg = 'Statement', fg = colors.purple }, --any statement
@@ -69,10 +71,11 @@ local highlights = {
   { hg = 'Cursor', fg = colors.black, bg = colors.blue }, --the character under the cursor
   { hg = 'CursorIM' }, --like Cursor, but used when in IME mode
   { hg = 'CursorLine', bg = colors.cursor_grey }, --the screen line that the cursor is in when 'cursorline' is set
+  { hg = 'CursorLineBg', fg = colors.cursor_grey, bg = colors.cursor_grey }, --the screen line that the cursor is in when 'cursorline' is set
   { hg = 'Directory', fg = colors.blue }, --directory names (and other special names in listings)
-  { hg = 'DiffAdd', bg = colors.blackgreen, fg = colors.foreground }, --diff mode: Added line
-  { hg = 'DiffChange', fg = colors.yellow, gui = 'undercurl', cterm = 'underline' }, --diff mode: Changed line
-  { hg = 'DiffDelete', bg = colors.blackred, fg = colors.black }, --diff mode: Deleted line
+  { hg = 'DiffAdd', bg = colors.diffgreen, fg = colors.foreground }, --diff mode: Added line
+  { hg = 'DiffChange', fg = colors.yellow, gui = 'undercurl', cterm = 'underline', guisp = colors.diffyellow }, --diff mode: Changed line
+  { hg = 'DiffDelete', bg = colors.diffred, fg = colors.foreground }, --diff mode: Deleted line
   { hg = 'DiffText', bg = colors.yellow, fg = colors.black }, --diff mode: Changed text within a changed line
   { hg = 'ErrorMsg', fg = colors.red }, --error messages on the command line
   { hg = 'VertSplit', fg = colors.vertsplit }, --the column separating vertically split windows
@@ -103,6 +106,7 @@ local highlights = {
   { hg = 'StatusLineNC', fg = colors.comment_grey }, --status lines of not-current windows Note = if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
   { hg = 'StatusLineTerm', fg = colors.white, bg = colors.cursor_grey }, --status line of current :terminal window
   { hg = 'StatusLineTermNC', fg = colors.comment_grey }, --status line of non-current  =terminal window
+  { hg = 'StatusLineNonText', fg = colors.special_grey, bg = colors.cursor_grey }, --status line of non-current  =terminal window
   { hg = 'TabLine', fg = colors.comment_grey }, --tab pages line, not active tab page label
   { hg = 'TabLineFill' }, --tab pages line, where there are no labels
   { hg = 'TabLineSel', fg = colors.white }, --tab pages line, active tab page label
